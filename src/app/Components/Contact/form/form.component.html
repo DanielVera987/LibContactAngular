@@ -31,5 +31,92 @@
       <span *ngSwitchCase="'minlength'">El campo Apellidos debe contener 5 caracteres como minimo</span>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="this.formContact.invalid">{{ getFormTitle() }}</button>
+
+  <div class="mb-3 mt-5">
+    <div class="d-flex align-items-center">
+      <h4 class="m-0 p-0 me-3">Teléfonos</h4>
+      <button type="button" class="btn btn-info btn-sm" (click)="addPhone()">+ Agregar teléfono</button>
+    </div>
+
+    <div class="ms-4 mt-4" formArrayName="phones">
+        <div *ngFor="let control of phones.controls; let i = index">
+          <ng-container [formGroupName]="i">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <input type="text" class="form-control" formControlName="phone" placeholder="Teléfono {{ i + 1 }}">
+              <button class="btn btn-danger btn-sm" (click)="deletePhone(i)">Delete</button>
+            </div>
+          </ng-container>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-5">
+    <div class="d-flex align-items-center">
+      <h4 class="m-0 p-0 me-3">Emails</h4>
+      <button type="button" class="btn btn-info btn-sm" (click)="addEmail()">+ Agregar Email</button>
+    </div>
+
+    <div class="ms-4 mt-4" formArrayName="emails">
+        <div *ngFor="let control of emails.controls; let i = index">
+          <ng-container [formGroupName]="i">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <input type="text" class="form-control" formControlName="email" placeholder="Email {{ i + 1 }}">
+              <button class="btn btn-danger btn-sm" (click)="deleteEmail(i)">Delete</button>
+            </div>
+          </ng-container>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-5">
+    <div class="d-flex align-items-center">
+      <h4 class="m-0 p-0 me-3">Direcciones</h4>
+      <button type="button" class="btn btn-info btn-sm" (click)="addAddress()">+ Agregar Dirección</button>
+    </div>
+
+    <div class="ms-4 mt-4" formArrayName="addresses">
+        <div *ngFor="let control of addresses.controls; let i = index">
+          <ng-container [formGroupName]="i">
+            <div class="card mb-3">
+              <div class="card-header">
+                Dirección {{ i + 1 }}
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between flex-wrap mb-3">
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Calle:</label>
+                    <input type="text" class="form-control mb-3" formControlName="street" placeholder="Calle">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Entre calles:</label>
+                    <input type="text" class="form-control mb-3" formControlName="between_streets" placeholder="Entre calles">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Codigo Postal:</label>
+                    <input type="text" class="form-control mb-3" formControlName="zip" placeholder="Codigo Postal">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Ciudad:</label>
+                    <input type="text" class="form-control mb-3" formControlName="city" placeholder="Ciudad">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Estado:</label>
+                    <input type="text" class="form-control mb-3" formControlName="state" placeholder="Estado">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Número exterior:</label>
+                    <input type="text" class="form-control mb-3" formControlName="num_ext" placeholder="Número exterior">
+                  </div>
+                  <div class="w-25 mx-2">
+                    <label for="" class="form-label font-monospace">Número interior:</label>
+                    <input type="text" class="form-control mb-3" formControlName="num_int" placeholder="Número interior">
+                  </div>
+                  <button class="btn btn-danger btn-sm" (click)="deleteAddress(i)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+    </div>
+  </div>
 </form>
