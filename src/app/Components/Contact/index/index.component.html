@@ -24,7 +24,7 @@
         <td>
           <div>
             <a class="btn btn-link p-0 me-4" [routerLink]="['/contact', contact.id, 'edit']">Editar</a>
-            <button class="btn btn-link p-0">Eliminar</button>
+            <button (click)="deleteContact(contact.id)" class="btn btn-link p-0">Eliminar</button>
           </div>
         </td>
       </tr>

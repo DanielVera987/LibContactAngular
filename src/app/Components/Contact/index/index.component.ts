@@ -18,6 +18,12 @@ export class IndexComponent implements OnInit {
     this.loadDataInToTable();
   }
 
+  deleteContact(id: number): void {
+    this.contactService.deleteEContact(id).subscribe(response => {
+      this.contacts = this.contacts.filter(contact => contact.id != id);
+    });
+  }
+
   private loadDataInToTable(): void {
     this.contactService.getContacts().subscribe(contacts => {
       this.contacts = contacts
