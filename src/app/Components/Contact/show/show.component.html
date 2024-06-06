@@ -1,0 +1,48 @@
+<div class="">
+  <h5>Detalles Generales</h5>
+
+  <div class="mb-3">
+    <div><span>Nombre:</span> {{ contact?.name }}</div>
+  </div>
+
+  <div class="mb-3">
+    <div><span>Apellidos:</span> {{ contact?.last_name }}</div>
+  </div>
+
+  <div class="mb-3">
+    <div><span>Compañia:</span> {{ contact?.company }}</div>
+  </div>
+
+  <h5 class="mt-4">Teléfonos</h5>
+  <ng-container *ngIf="contact?.phones;">
+    <div *ngFor="let phone of contact?.phones; let i = index;">
+      <div class="ms-4">Teléfono {{ i + 1 }}: {{ phone?.phone }}</div>
+    </div>
+  </ng-container>
+
+  <h5 class="mt-4">Emails</h5>
+  <ng-container *ngIf="contact?.emails;">
+    <div *ngFor="let email of contact?.emails; let i = index;">
+      <div class="ms-4">Email {{ i + 1 }}: {{ email?.email }}</div>
+    </div>
+  </ng-container>
+
+  <h5 class="mt-4">Direcciones</h5>
+  <ng-container *ngIf="contact?.addresses;">
+    <div *ngFor="let address of contact?.addresses; let i = index;">
+      <div class="ms-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            Calle {{ i + 1 }}: {{ address?.street }} <br>
+            Entre calles {{ i + 1 }}: {{ address?.between_streets }} <br>
+            Ciudad {{ i + 1 }}: {{ address?.city }} <br>
+            Estado {{ i + 1 }}: {{ address?.satate }} <br>
+            Código Postal {{ i + 1 }}: {{ address?.zip }} <br>
+            Número Externo {{ i + 1 }}: {{ address?.num_ext }} <br>
+            Número Interno {{ i + 1 }}: {{ address?.num_int }} <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
