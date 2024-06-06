@@ -9,6 +9,7 @@ import { ContactService } from 'src/app/Services/Contact/contact.service';
 })
 export class IndexComponent implements OnInit {
   contacts: Contact[] = [];
+  page: number = 0;
 
   constructor(
     private contactService: ContactService
@@ -16,6 +17,16 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDataInToTable();
+  }
+
+  nextPage() {
+    this.page += 10;
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page -= 10;
+    }
   }
 
   deleteContact(id: number): void {

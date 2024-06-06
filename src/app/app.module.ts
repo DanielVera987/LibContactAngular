@@ -10,6 +10,7 @@ import { FooterComponent } from './Components/Layout/footer/footer.component';
 import { IndexComponent } from './Components/Contact/index/index.component';
 import { CreateComponent } from './Components/Contact/form/form.component';
 import { ShowComponent } from './Components/Contact/show/show.component';
+import { FiltroPipe } from './Components/Contact/pipes/filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ShowComponent } from './Components/Contact/show/show.component';
     FooterComponent,
     IndexComponent,
     CreateComponent,
-    ShowComponent
+    ShowComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,
