@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between mb-5">
+  <h1>Lista de contactos</h1>
+
+  <div class="">
+    <button class="btn btn-info">Nuevo contacto</button>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Compañia</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="contacts.length; else emptyMessage">
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.last_name }}</td>
+        <td>{{ contact.company }}</td>
+        <td>
+          <div>
+            <a class="btn btn-link p-0 me-4" [routerLink]="['/contact', contact.id, 'editar']">Editar</a>
+            <button class="btn btn-link p-0">Eliminar</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <ng-template #emptyMessage>
+      <tr>
+        <td colspan="4">No hay datos</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>
