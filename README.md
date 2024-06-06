@@ -10,7 +10,7 @@ Para la correcta ejecución de este proyecto, necesitas tener las siguientes tec
 
 1. Clona este proyecto.
 ```bash
-git clone https://github.com/DanielVera987/LibContactApi.git
+git clone https://github.com/DanielVera987/LibContactAngular.git
 ```
 
 2. Instala las dependencias de node con npm.
