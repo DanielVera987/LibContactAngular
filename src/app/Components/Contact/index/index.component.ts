@@ -10,6 +10,7 @@ import { ContactService } from 'src/app/Services/Contact/contact.service';
 export class IndexComponent implements OnInit {
   contacts: Contact[] = [];
   page: number = 0;
+  search: string = '';
 
   constructor(
     private contactService: ContactService
@@ -27,6 +28,11 @@ export class IndexComponent implements OnInit {
     if (this.page > 0) {
       this.page -= 10;
     }
+  }
+
+  onSearchContact(search: string) {
+    this.page = 0;
+    this.search = search;
   }
 
   deleteContact(id: number): void {

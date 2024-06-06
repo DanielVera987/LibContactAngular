@@ -6,7 +6,12 @@ import { Contact } from 'src/app/Models/contact.model';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(contacts: Contact[], page: number = 0): Contact[] {
-    return contacts.slice(page, page + 15);
+  transform(contacts: Contact[], page: number = 0, search: string = ''): Contact[] {
+    if (search.length === 0) {
+      return contacts.slice(page, page + 15);
+    }
+
+    const filteredContacts = contacts.filter(contact => contact.name.includes(search));
+    return filteredContacts.slice(page, page + 15);
   }
 }

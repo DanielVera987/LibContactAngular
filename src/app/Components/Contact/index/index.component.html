@@ -6,11 +6,13 @@
   </div>
 </div>
 
+<input type="text" class="form-control mb-4" #txtSearch (keyup)="onSearchContact(txtSearch.value)" placeholder="Buscar por nombre">
+
 <div class="d-flex">
   <button class="btn btn-primary mx-3" (click)="prevPage()">
     Anterior
   </button>
-  <button class="btn btn-primary" (click)="nextPage()">
+  <button class="btn btn-primary" (click)="nextPage()" [disabled]="(contacts | filtro:page:search).length === 0">
     Siguiente
   </button>
 </div>
@@ -25,7 +27,7 @@
   </thead>
   <tbody>
     <ng-container *ngIf="contacts.length; else emptyMessage">
-      <tr *ngFor="let contact of contacts | filtro:page" [ngStyle]="{'heigth': '100px'}">
+      <tr *ngFor="let contact of contacts | filtro:page:search" [ngStyle]="{'heigth': '100px'}">
         <td>{{ contact.name }}</td>
         <td>{{ contact.last_name }}</td>
         <td>{{ contact.company }}</td>
@@ -50,7 +52,7 @@
   <button class="btn btn-primary mx-3" (click)="prevPage()">
     Anterior
   </button>
-  <button class="btn btn-primary" (click)="nextPage()">
+  <button class="btn btn-primary" (click)="nextPage()" [disabled]="(contacts | filtro:page:search).length === 0">
     Siguiente
   </button>
 </div>
