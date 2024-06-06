@@ -2,7 +2,7 @@
   <h1>Lista de contactos</h1>
 
   <div class="">
-    <button class="btn btn-info">Nuevo contacto</button>
+    <button routerLink="contact/create" class="btn btn-info">Nuevo contacto</button>
   </div>
 </div>
 
@@ -23,7 +23,7 @@
         <td>{{ contact.company }}</td>
         <td>
           <div>
-            <a class="btn btn-link p-0 me-4" [routerLink]="['/contact', contact.id, 'editar']">Editar</a>
+            <a class="btn btn-link p-0 me-4" [routerLink]="['/contact', contact.id, 'edit']">Editar</a>
             <button class="btn btn-link p-0">Eliminar</button>
           </div>
         </td>

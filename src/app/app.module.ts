@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/Layout/header/header.component';
 import { FooterComponent } from './Components/Layout/footer/footer.component';
 import { IndexComponent } from './Components/Contact/index/index.component';
+import { CreateComponent } from './Components/Contact/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    IndexComponent
+    IndexComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

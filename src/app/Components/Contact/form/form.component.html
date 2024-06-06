@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center justify-content-between flex-wrap mt-5 mb-4 border-bottom">
+  <h2 class="section-title mb-4">{{ getFormTitle() }}</h2>
+  <div class="d-flex gap-2 mb-3">
+    <a class="btn btn-outline-secondary" [routerLink]="''">Cancelar</a>
+    <button type="button" class="btn btn-primary" (click)="saveContact()" [disabled]="this.formContact.invalid">{{ getFormTitle() }}</button>
+  </div>
+</div>
+
+<form class="mb-5" [formGroup]="formContact" (ngSubmit)="saveContact()">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nombres: <span class="text-danger">*</span></label>
+    <input type="text" formControlName="name" class="form-control {{ hasError('name') ? 'is-invalid' : '' }}" id="nameInput">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('name')">
+      <span *ngSwitchCase="'required'">El campo Nombre es requerido</span>
+      <span *ngSwitchCase="'minlength'">El campo Nombre debe contener 5 caracteres como minimo</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="lastNameInput" class="form-label">Apellidos: <span class="text-danger">*</span></label>
+    <input type="text" formControlName="last_name" class="form-control {{ hasError('last_name') ? 'is-invalid' : '' }}" id="lastNameInput">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('last_name')">
+      <span *ngSwitchCase="'required'">El campo Apellidos es requerido</span>
+      <span *ngSwitchCase="'minlength'">El campo Apellidos debe contener 5 caracteres como minimo</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="CompanyInput" class="form-label">Compañia:</label>
+    <input type="text" formControlName="company" class="form-control {{ hasError('company') ? 'is-invalid' : '' }}" id="CompanyInput">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('company')">
+      <span *ngSwitchCase="'required'">El campo Apellidos es requerido</span>
+      <span *ngSwitchCase="'minlength'">El campo Apellidos debe contener 5 caracteres como minimo</span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="this.formContact.invalid">{{ getFormTitle() }}</button>
+</form>
